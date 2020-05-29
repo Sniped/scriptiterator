@@ -1,5 +1,5 @@
 import { isUri } from 'valid-url';
-import { typeString, keyTap } from 'robotjs';
+import { typeStringDelayed, keyTap } from 'robotjs';
 import fetch from 'node-fetch';
 
 export default class Script {
@@ -44,7 +44,7 @@ export default class Script {
         const text = await this.getText();
         const splitText = text.split(' ');
         splitText.forEach(text => {
-            typeString(text);
+            typeStringDelayed(text, 2000);
             keyTap('enter');
         });
     }
